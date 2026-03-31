@@ -1,0 +1,108 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+
+@import "../src/styles/flex.scss";
+@import "../src/styles/spacing.scss";
+@import "../src/styles/typo.scss";
+
+@font-face {
+  font-family: 'Poppins';
+    src: 
+       url('assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+    src: 
+       url('assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+    src: url('assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geologica';
+    src: url('assets/fonts/Geologica/static/Geologica-SemiBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body { 
+  height: 100%;
+  width: 100%;
+  margin: 0; 
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.font-geologica{
+    font-family: 'Geologica', sans-serif !important;
+}
+
+.blue{
+  color: #274760;
+}
+
+.light-blue {
+  color: #307BC4;
+}
+
+.blue-btn{
+  border: none;
+  border-radius: 24px;
+  padding-top: 12px;
+  padding-right: 40px;
+  padding-bottom: 12px;
+  padding-left: 40px;
+  gap: 7.42px;
+  box-shadow: 0px 4px 20px 0px rgba(39, 71, 96, 0.17);
+  background: linear-gradient(105.22deg, #307BC4 0%, #274760 100%);
+  color: white;
+  cursor: pointer;
+}
+
+.bg-radial-grad{
+  background: radial-gradient(59.95% 42.35% at 70.78% 50%, rgba(134, 187, 241, 0.38) 0%, rgba(134, 187, 241, 0) 100%);
+}
+
+  .hide-sm{
+    display: block;
+  }
+
+  .show-sm{
+    display: none;
+  }
+
+@media screen and (max-width:700px) {
+  .hide-sm{
+    display: none;
+  }
+
+  .show-sm{
+    display: block;
+  }
+}
+

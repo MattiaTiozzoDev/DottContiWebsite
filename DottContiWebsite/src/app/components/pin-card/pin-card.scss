@@ -1,0 +1,39 @@
+
+
+p{
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: rgb(0 0 0 / 53%);
+
+}
+
+h3{
+    font-family: Geologica;
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 20px;
+    line-height: 25.6px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+@media screen and (max-width:700px) {
+    p{
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    h3{
+        font-size: 16px;
+        line-height: 23.04px; 
+    }
+
+    img{
+        width: 60px;
+    }
+}

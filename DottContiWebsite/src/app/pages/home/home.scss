@@ -1,0 +1,113 @@
+.blu-img-bg{
+    background-image: url('/assets/img/sfondo_Banner.svg');
+    background-size: cover;
+}
+
+.title{
+    font-family: Geologica;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 140px;
+    line-height: 132px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.subtitle{
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 53.27px;
+    line-height: 63.8px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.text{
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.page-container{
+    background: radial-gradient(59.95% 42.35% at 70.78% 50%, rgba(134, 187, 241, 0.38) 0%, rgba(134, 187, 241, 0) 100%);
+}
+
+.pin-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 50px;
+    background-color: white;
+    padding: 35px;
+    box-shadow: 0px 4px 4px 0px rgba(48, 123, 196, 0.15);
+    border-radius: 15px;
+    transform: translateY(-43px);
+    width: 90%;
+}
+
+.transform-y-80{
+    transform: translateY(-80px);
+
+}
+
+.translate-y-30px{
+    transform: translateY(-30px);
+}
+
+.gray{
+    color: rgb(103, 103, 103);
+}
+
+@media screen and (max-width:1000px) {
+    .title{
+        font-size: 80px;
+        line-height: 75px;
+    }
+
+    .subtitle{
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+    .text{
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .title{
+        font-size: 72px;
+        line-height: 75px;
+    }
+
+    .subtitle{
+        font-size: 33px;
+        line-height: 35px;
+    }
+
+    .w-sm-150px{
+        width: 170px;
+    }
+
+    .img-conti-translate{
+        transform: translate(50px, -140px);
+    }
+
+    .transform-y-80{
+        transform: translateY(-180px);
+    }
+
+    .pin-container{
+        padding: 40px 20px;
+    }
+
+    .translate-y-30px{
+        transform: translateY(0px);
+    }
+}

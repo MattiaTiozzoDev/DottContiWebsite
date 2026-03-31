@@ -1,0 +1,25 @@
+.bold{
+    font-weight: bold;
+}
+
+.no-wrap{
+    text-wrap: nowrap;
+}
+
+.text-center{
+    text-align: center;
+}
+
+@for $i from 1 through 100 {
+    .fs-#{$i}px {
+      font-size: #{$i}px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    @for $i from 1 through 100 {
+        .fs-sm-#{$i}px {
+        font-size: #{$i}px;
+        }
+    }
+}
