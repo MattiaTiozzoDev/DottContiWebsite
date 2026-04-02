@@ -1,0 +1,29 @@
+.card{
+    width: 300px;
+    height: 300px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(48, 123, 196, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #27476021;
+}
+
+.blue-card{
+    background-color: #274760;
+}
+
+.blue-card ::ng-deep *{
+    color:white !important;
+}
+
+@media screen and (max-width:700px) {
+    .card{
+        width: 300px;
+        height: 320px;
+        padding: 30px;
+        margin-right: 20px;
+    }
+
+}

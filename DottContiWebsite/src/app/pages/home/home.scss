@@ -1,5 +1,5 @@
 .blu-img-bg{
-    background-image: url('/assets/img/sfondo_Banner.svg');
+    background-image: url('assets/img/sfondo_Banner.svg');
     background-size: cover;
 }
 
@@ -59,8 +59,17 @@
     transform: translateY(-30px);
 }
 
-.gray{
-    color: rgb(103, 103, 103);
+.w-600px{
+    width: 600px;
+}
+
+.px-120px{
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.transform-y-100{
+    transform: translateY(100px);
 }
 
 @media screen and (max-width:1000px) {
@@ -78,6 +87,18 @@
         font-size: 16px;
         line-height: 24px;
     }
+
+    .w-sm-335px{
+        width: 335px;
+    }
+
+
+
+    .align-center-sm{
+        align-items: center;
+    }
+
+
 }
 
 @media screen and (max-width:700px) {
@@ -87,8 +108,13 @@
     }
 
     .subtitle{
-        font-size: 33px;
+        font-size: 30px;
         line-height: 35px;
+    }
+
+    .px-sm-10px{
+        padding-left: 10px !important;
+        padding-right: 10px !important;
     }
 
     .w-sm-150px{
@@ -103,11 +129,49 @@
         transform: translateY(-180px);
     }
 
+    .transform-y-100{
+        transform: translateY(-80px);
+    }
+
     .pin-container{
         padding: 40px 20px;
     }
 
     .translate-y-30px{
         transform: translateY(0px);
+    }
+
+    .col-sm-reverse{
+        flex-direction: column-reverse;
+    }
+
+    .show-sm{
+        display: flex;
+    }
+
+    .overflow-x-sm-scroll{
+        overflow-x: scroll;
+    }
+
+    .overflow-y-sm-visible{
+        overflow-y: visible;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+   .fs-md{
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+   .fs-md{
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+    .fs-md{
+        font-size: 12px;
     }
 }
