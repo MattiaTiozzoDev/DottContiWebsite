@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class BigCard {
   @Input() title: string = '';
+  @Input() title2: string = '';
   @Input() img: string = '';
 }

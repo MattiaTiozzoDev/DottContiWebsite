@@ -1,6 +1,8 @@
 <div class="card">
     <img src="{{ img }}" alt="Icona">
-    <h3 class="w-60 w-sm-70 fs-30px blue py-20px text-center fs-sm-26px">{{ title }}</h3>
+    @if(title){
+        <h3 class=" w-sm-70 fs-30px blue py-20px text-center fs-sm-26px">{{ title }} <br> {{ title2 }}</h3>
+    }
     <div class="content-wrapper">
         <ng-content ></ng-content>
     </div>

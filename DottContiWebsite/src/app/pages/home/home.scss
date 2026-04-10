@@ -1,5 +1,5 @@
 .blu-img-bg{
-    background-image: url('assets/img/sfondo_Banner.svg');
+    background-image: url('../../../assets/img/sfondo_Banner.svg');
     background-size: cover;
 }
 
@@ -92,13 +92,9 @@
         width: 335px;
     }
 
-
-
     .align-center-sm{
         align-items: center;
     }
-
-
 }
 
 @media screen and (max-width:700px) {
@@ -133,6 +129,14 @@
         transform: translateY(-80px);
     }
 
+    .transform-y-100-sm{
+        transform: translateY(-80px);
+    }
+
+    .transform-y-sm-130px{
+        transform: translateY(80px);
+    }
+
     .pin-container{
         padding: 40px 20px;
     }
@@ -150,7 +154,13 @@
     }
 
     .overflow-x-sm-scroll{
-        overflow-x: scroll;
+        overflow-x: auto;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .min-w-0{
+        min-width: 0;
     }
 
     .overflow-y-sm-visible{

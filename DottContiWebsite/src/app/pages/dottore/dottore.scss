@@ -1,0 +1,208 @@
+.blu-img-bg{
+    background: linear-gradient(119.31deg, #D2EAEF 17.16%, #86BBF1 89.78%);
+}
+
+.title{
+    font-family: Geologica;
+    font-weight: 700;
+    font-style: Bold;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.subtitle{
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 21px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.text{
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.pin-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 0px;
+    background-color: white;
+    padding: 35px;
+    box-shadow: 0px 4px 4px 0px rgba(48, 123, 196, 0.15);
+    border-radius: 15px;
+    width: 90%;
+}
+
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius:5px;
+    background-color: rgba(48, 123, 196, 1);
+}
+
+.container{
+    margin: 100px 80px ;
+}
+
+.box{
+    height: 410px;
+    overflow-y: visible;
+    background-image: url('../../../assets/img/banner_prenotazioni.svg');
+    background-size: cover;
+}
+
+.gap-20px{
+    gap: 20px;
+}
+
+.footer{
+    height: 100px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.gray{
+    color: rgba(39, 71, 96, 0.52);
+}
+
+.h-600px{
+    height: 600px;
+}
+
+.transform-y-80{
+    transform: translateY(-80px);
+
+}
+
+.pb-300px{
+    padding-bottom: 200px;
+}
+
+.px-120px{
+    padding-left: 120px;
+    padding-right: 120px;
+}
+@media screen and (max-width:1100px) {
+
+    .w-md-100{
+        width: 100%;
+    }
+
+    .w-md-50{
+        width: 50%;
+    }
+
+    .text{
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .pl-md-30px{
+        padding-left: 30px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .bg-sm-white{
+        background-color: white;
+    }
+
+     .col-sm {
+    flex-direction: column;
+  }
+
+  .container{
+    margin: 40px 20px  0 20px;
+}
+
+    .transform-sm-0{
+        transform: translateY(0);
+    }
+
+    .px-sm-0px{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .px-sm-10px{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .pl-sm-5px{
+        padding-left: 5px;
+    }
+
+    .pb-sm-30px{
+        padding-bottom: 30px;
+    }
+
+    .text{
+        font-size: 14px;
+        line-height: 19px;
+        color: rgba(39, 71, 96, 0.52);
+        padding-bottom: 30px
+;
+    }
+
+    .footer{
+        height: 60px;
+    }
+
+    .overflow-x-sm-scroll{
+        overflow-x: auto;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .w-sm-100{
+        width: 100%;
+    }
+
+    .pin-container{
+        padding: 15px;
+    }
+
+    .show-sm{
+        display: flex;
+    }
+
+    .icon {
+        transition: transform 0.3s ease;
+    }
+
+    .icon.open {
+        transform: rotate(180deg);
+    }
+
+    .cv-button {
+        width: 100%;
+        height: 70px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        border: 1px solid rgba(48, 123, 196, 1);
+        padding-left: 30px;
+        padding-right: 30px;
+        cursor: pointer;
+    }
+
+    .cv-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.8s ease;
+    }
+
+    .cv-content.open {
+        max-height: 3000px; /* abbastanza grande per contenere tutto */
+    }
+}

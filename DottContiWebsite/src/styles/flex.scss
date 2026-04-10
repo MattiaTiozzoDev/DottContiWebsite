@@ -18,6 +18,14 @@
     flex-direction: column-reverse;
 }
 
+.wrap{
+    flex-wrap: wrap;
+}
+
+.no-wrap{
+    flex-wrap: nowrap;
+}
+
 //Justify
 
 .justify-end {

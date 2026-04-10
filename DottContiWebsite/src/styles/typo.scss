@@ -16,9 +16,24 @@
     }
 }
 
+@for $i from 1 through 10 {
+  $weight: $i * 100;
+  .fw-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
 @media screen and (max-width:700px) {
     @for $i from 1 through 100 {
         .fs-sm-#{$i}px {
+        font-size: #{$i}px;
+        }
+    }
+}
+
+@media screen and (max-width:1100px) {
+    @for $i from 1 through 100 {
+        .fs-md-#{$i}px {
         font-size: #{$i}px;
         }
     }

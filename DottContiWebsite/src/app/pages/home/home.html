@@ -41,7 +41,7 @@
             </card>
     </div>
     <div class="padding-large">
-        <div class="w-100 flex justify-center py-40px px-120px px-sm-10px col-sm align-center-sm">
+        <div class="w-100 flex justify-center py-60px px-120px px-sm-10px col-sm align-center-sm">
         <img class="w-600px w-sm-335px " src="assets/img/andrologia_conti.svg" alt="Andrologia Dr. Enrico Conti">
         <div class="flex col px-70px px-md-20px px-sm-10px">
             <h3 class="fs-50px fs-sm-40px bold blue pt-sm-20px">Andrologia</h3>
@@ -60,7 +60,7 @@
 </div>
 <div class="bg-radial-grad padding-large">
     <div class="transform-y-80">
-        <div class="w-100 flex justify-center py-40px px-120px px-sm-10px col-sm-reverse align-center-sm">
+        <div class="w-100 flex justify-center py-60px px-120px px-sm-10px col-sm-reverse align-center-sm">
             <div class="flex col pl-0px pr-70px px-md-20px px-sm-10px">
                 <h3 class="fs-50px fs-sm-40px bold blue pt-sm-20px">Urologia</h3>
                 <h5 class="light-blue fs-25px pt-20px"> DIAGNOSI E CURA DELLE  </h5>
@@ -81,12 +81,12 @@
         </div>
     </div>
 </div>
-<div class="bg-radial-grad padding-large mt-200px transform-y-100 ">
+<div class="bg-radial-grad padding-large mt-200px transform-y-100 transform-y-100-sm">
     <div class="px-120px px-sm-10px flex justify-between align-center overflow-x-sm-scroll" [style.transform]="'translateX(' + translateXvisits + 'px)'" style="transition: transform 0.3s ease;">
-        <big-card [title]="'Visite specialistiche'" [img]="'assets/img/special_visit_icon.svg'" class=" px-sm-0px zoom-md">
+        <big-card [title]="'Visite'" [title2]="'specialistiche'" [img]="'assets/img/special_visit_icon.svg'" class=" px-sm-0px zoom-md">
             <p class="gray fs-16px fs-sm-12px">Visita urologica <br> Visita andrologica <br> Consulenza specialistica</p>
         </big-card>
-        <big-card [title]="'Esami diagnostici'" [img]="'assets/img/exams_icon.svg'" class=" px-sm-0px zoom-md">
+        <big-card [title]="'Esami '"  [title2]="'diagnostici'" [img]="'assets/img/exams_icon.svg'" class=" px-sm-0px zoom-md">
             <p class="gray fs-16px fs-sm-12px">Ecografia prostatica <br> Ecografia apparato urinario <br> Ecografia scrotale <br> Ecografia renale </p>
         </big-card>
         <big-card [title]="'Trattamenti specialistici'" [img]="'assets/img/treatment_icon.svg'" class=" px-sm-0px zoom-md">
@@ -103,7 +103,7 @@
         </div>
     </div>
     <div class="px-120px px-sm-10px">
-        <h4 class="fs-50px fs-sm-35px bold blue pt-40px">Approfondimenti <br> e articoli</h4>
+        <h4 class="fs-50px fs-sm-35px bold blue pt-80px">Approfondimenti <br> e articoli</h4>
         <p class="gray w-80 fs-sm-14px w-sm-100">Informazione e aggiornamento sulla salute urologica e andrologica.</p>
         <div class=" px-sm-0px flex justify-between align-center pt-40px overflow-x-sm-scroll " [style.transform]="'translateX(' + translateXarticles + 'px)'" style="transition: transform 0.3s ease;">
             <article-card [date]="'10 Ottobre 2024'" class="px-sm-0px zoom-md" [index]="0">
@@ -130,10 +130,12 @@
         </div>
     </div>
     <hospitals></hospitals>
-    <prenotation-box></prenotation-box>
-
+    <prenotation-box class="transform-y-sm-130px"></prenotation-box>
+    <footer class="transform-y-sm-130px"></footer>
 </div>
-<footer class="transform-y-100"></footer>
+
+
+
 
 
 

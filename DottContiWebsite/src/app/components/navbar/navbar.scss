@@ -110,8 +110,9 @@ li:hover .flex-center .link-underline {
         background-color: white;
         z-index: 9999;
         align-items: center;
-        transform: translateX(100%);
+        transform: translateY(-110%);
         transition: transform 0.5s ease-in;
+        padding-bottom:70px;
     }
 
     .nav-links {
@@ -133,7 +134,7 @@ li:hover .flex-center .link-underline {
     }
 
     .nav-active {
-        transform: translateX(0%);
+        transform: translateY(0%);
     }
 
     nav {
