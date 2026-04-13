@@ -1,26 +1,18 @@
 import { Component } from '@angular/core';
-import { PinCard } from '../../components/pin-card/pin-card';
-import { CurriculumVitae } from '../../components/curriculum-vitae/curriculum-vitae';
-import { BigCard } from '../../components/big-card/big-card';
 import { PrenotationBox } from '../../components/prenotation-box/prenotation-box';
+import { Accordion } from '../../components/accordion/accordion';
+import { Visite } from '../../components/visite/visite';
 import { Hospitals } from '../../components/hospitals/hospitals';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
-  selector: 'dottore',
-  imports: [
-    PinCard,
-    CurriculumVitae,
-    BigCard,
-    PrenotationBox,
-    Hospitals,
-    RevealDirective,
-  ],
-  templateUrl: './dottore.html',
-  styleUrl: './dottore.scss',
+  selector: 'prestazioni',
+  imports: [Accordion, PrenotationBox, Visite, Hospitals, RevealDirective],
+  templateUrl: './prestazioni.html',
+  styleUrl: './prestazioni.scss',
 })
-export class Dottore {
+export class Prestazioni {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

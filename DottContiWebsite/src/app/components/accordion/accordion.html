@@ -1,0 +1,12 @@
+
+<div class="accordion-container pb-30px pb-sm-10px col-sm  reveal" revealDirective>
+    <button (click)="toggle()" class="accordion-button" [class.open]="isOpen">
+        <span class="fw-500 fs-22px fs-sm-16px blue">{{text}}</span>
+        <img src="assets/img/accordion_icon.svg" alt="Freccia" class="icon" [class.open]="isOpen">
+    </button>
+
+    <div class="accordion-content" [class.open]="isOpen">
+        <!-- QUI dentro il tuo contenuto -->
+       <ng-content></ng-content>
+    </div>
+</div>

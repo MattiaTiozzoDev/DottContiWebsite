@@ -1,26 +1,16 @@
 import { Component } from '@angular/core';
-import { PinCard } from '../../components/pin-card/pin-card';
-import { CurriculumVitae } from '../../components/curriculum-vitae/curriculum-vitae';
-import { BigCard } from '../../components/big-card/big-card';
+import { Accordion } from '../../components/accordion/accordion';
 import { PrenotationBox } from '../../components/prenotation-box/prenotation-box';
-import { Hospitals } from '../../components/hospitals/hospitals';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
-  selector: 'dottore',
-  imports: [
-    PinCard,
-    CurriculumVitae,
-    BigCard,
-    PrenotationBox,
-    Hospitals,
-    RevealDirective,
-  ],
-  templateUrl: './dottore.html',
-  styleUrl: './dottore.scss',
+  selector: 'app-urologia',
+  imports: [Accordion, PrenotationBox, RevealDirective],
+  templateUrl: './urologia.html',
+  styleUrl: './urologia.scss',
 })
-export class Dottore {
+export class Urologia {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

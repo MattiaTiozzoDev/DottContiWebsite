@@ -56,6 +56,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none !important;
 }
 
 ::-webkit-scrollbar {
@@ -86,6 +87,10 @@ html, body {
     font-family: 'Geologica', sans-serif !important;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 .blue{
   color: #274760;
 }
@@ -95,7 +100,7 @@ html, body {
 }
 
 .gray{
-    color: rgb(103, 103, 103);
+       color: rgba(39, 71, 96, 0.52);
 }
 
 .white{
@@ -115,11 +120,19 @@ html, body {
   padding-right: 40px;
   padding-bottom: 12px;
   padding-left: 40px;
+  border: 1px solid  transparent ;
   gap: 7.42px;
   box-shadow: 0px 4px 20px 0px rgba(39, 71, 96, 0.17);
   background: linear-gradient(105.22deg, #307BC4 0%, #274760 100%);
+  transition: 0s linear;
   color: white;
   cursor: pointer;
+}
+
+.blue-btn:hover{
+  border: 1px solid  #274760 ;
+  color: #274760;
+  background: linear-gradient(105.22deg, #d6ebff 0%, #93c6ec 100%);
 }
 
 .bg-radial-grad{
@@ -134,6 +147,20 @@ html, body {
     display: none;
   }
 
+.reveal {
+  transform: translateY(60px);
+  opacity: 0;
+  transition: all 0.6s ease-out;
+  will-change: transform, opacity;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+
 @media screen and (max-width:700px) {
   .hide-sm{
     display: none;
@@ -142,6 +169,22 @@ html, body {
   .show-sm{
     display: block;
   }
+
+  .no-reveal-sm{
+    transform: translateY(0px) !important; 
+    opacity: 1 !important;
+  }
+
+  .reveal-left {
+    transform: translateX(120px);
+    opacity: 0;
+    transition: all 0.7s ease-out;
+  }
+
+.reveal-left.active {
+  transform: translateX(0);
+  opacity: 1;
+}
 }
 
 @media screen and (min-width:1700px) {

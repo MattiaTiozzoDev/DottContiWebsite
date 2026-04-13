@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { PinCard } from '../../components/pin-card/pin-card';
 import { Card } from '../../components/card/card';
 import { BigCard } from '../../components/big-card/big-card';
@@ -6,6 +6,8 @@ import { ArticleCard } from '../../components/article-card/article-card';
 import { Hospitals } from '../../components/hospitals/hospitals';
 import { PrenotationBox } from '../../components/prenotation-box/prenotation-box';
 import { Footer } from '../../components/footer/footer';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'conti-home',
@@ -17,11 +19,23 @@ import { Footer } from '../../components/footer/footer';
     Hospitals,
     PrenotationBox,
     Footer,
+    RouterLink,
+    RevealDirective,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+                window.scrollTo(0, 0);
+
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }
+    });
+  }
   translateXvisits = 0;
   translateXarticles = 0;
 

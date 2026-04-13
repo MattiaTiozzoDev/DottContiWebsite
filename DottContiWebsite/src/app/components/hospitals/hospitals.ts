@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'hospitals',
-  imports: [],
+  imports: [RevealDirective],
   templateUrl: './hospitals.html',
   styleUrl: './hospitals.scss',
 })

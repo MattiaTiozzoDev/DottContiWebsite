@@ -1,0 +1,68 @@
+.img-bg{
+    background-image: url('../../../assets/img/banner_andrologia.svg');
+    background-size: cover;
+    background-position: right top;
+}
+
+.text{
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.footer{
+    padding: 0 80px ;
+    height: 100px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.hover-blue:hover{
+    cursor: pointer;
+    color: #496d89;
+}
+
+@media screen and (max-width:1100px) {
+
+    .w-md-100{
+        width: 100%;
+    }
+
+    .w-md-50{
+        width: 50%;
+    }
+
+    .text{
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .pl-md-30px{
+        padding-left: 30px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .img-bg{
+        background-position: 80% top;
+    }
+
+    .footer{
+        padding: 0 10px ;
+        height: 60px;
+    }
+
+    .text{
+        font-size: 14px;
+        line-height: 19px;
+        color: rgba(39, 71, 96, 0.52);
+        padding-bottom: 20px;
+    }
+
+    .h-sm-80hw{
+        height: 80vh;
+    }
+}

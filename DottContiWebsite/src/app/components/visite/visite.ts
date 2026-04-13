@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
-  selector: 'prenotation-box',
+  selector: 'visite',
   imports: [RevealDirective],
-  templateUrl: './prenotation-box.html',
-  styleUrl: './prenotation-box.scss',
+  templateUrl: './visite.html',
+  styleUrl: './visite.scss',
 })
-export class PrenotationBox {}
+export class Visite {}
