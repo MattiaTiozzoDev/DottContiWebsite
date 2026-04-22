@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'conti-navbar',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, AsyncPipe],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  constructor(public authservice: AuthService) {}
+
   public lang: string = 'IT';
 
   openNavbar() {
@@ -43,6 +47,4 @@ export class Navbar {
   ngOnInit(): void {
     this.lang = localStorage.getItem('lang') || 'it';
   }
-
-  constructor() {}
 }

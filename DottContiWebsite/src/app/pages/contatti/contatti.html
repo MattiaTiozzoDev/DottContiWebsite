@@ -17,30 +17,44 @@
 <div class="bg-radial-grad padding-large w-100">
     <div class="transform-y-80 transform-sm-0">
         <div class="w-100 flex justify-center ">
-            <div class="w-100 flex col align-center justify-center form-container px-sm-20px ">
-                <div class="flex gap-20px col-sm w-sm-100">
-                    <div class="col w-sm-100">
-                        <h6 class="blue fs-16px fw-400">Nome</h6>
-                        <input type="text" class="text-input">
+                <div class="w-100 flex col align-center justify-center form-container px-sm-20px ">
+                    <form [formGroup]="form" (ngSubmit)="sendMail()">
+                    <div class="flex gap-20px col-sm w-sm-100">
+                        <div class="col w-sm-100">
+                            <h6 class="blue fs-16px fw-400">Nome</h6>
+                            <input type="text" class="text-input" formControlName="name" placeholder="Nome">
+                            @if(form.get('name')?.invalid && form.get('name')?.touched){
+                                    Nome non valido
+                            }
+                        </div>
+                        <div class="col  w-sm-100">
+                            <h6 class="blue fs-16px fw-400">Email</h6>
+                            <input type="text" class="text-input" formControlName="email" placeholder="Email">
+                            @if(form.get('email')?.invalid && form.get('email')?.touched){
+                                    Email non valida
+                            }
+                        </div>
                     </div>
                     <div class="col  w-sm-100">
-                        <h6 class="blue fs-16px fw-400">Email</h6>
-                        <input type="text" class="text-input">
+                        <h6 class="blue fs-16px fw-400">Oggetto</h6>
+                        <input type="text" class="text-input w-600" formControlName="subject" placeholder="Oggetto">
                     </div>
-                </div>
-                <div class="col  w-sm-100">
-                    <h6 class="blue fs-16px fw-400">Oggetto</h6>
-                    <input type="text" class="text-input w-600">
-                </div>
-                <div class="col  w-sm-100">
-                    <h6 class="blue fs-16px fw-400">Messaggio</h6>
-                    <input type="textarea" class="textarea-input ">
-                </div>
-                <div class="flex w-600 justify-end align-end pb-sm-40px">
-                    <button class="blue-btn mt-30px">Invia</button>
-                </div>
+                    <div class="col  w-sm-100">
+                        <h6 class="blue fs-16px fw-400">Messaggio</h6>
+                        <textarea class="textarea-input " formControlName="message" placeholder="Messaggio"></textarea>
+                    </div>
+                    <div class="flex w-600 justify-end align-end pb-sm-40px">
+                        <button class="blue-btn mt-30px" type="submit" [disabled]="loading">
+                            @if(loading){
+                                Invio...
+                            } 
+                            @else {
+                                Invia
+                            }
+                        </button>
+                    </div>
+                </form>
             </div>
-
         </div>
     </div>
     <div class="w-100 flex justify-center mt-sm-50px">

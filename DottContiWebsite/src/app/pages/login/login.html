@@ -1,0 +1,21 @@
+<div class="transform-sm-0 py-50px bg-radial-grad">
+    <h1 class="title w-100 text-center blue fs-50px fs-sm-40px">Benvenuto Dr. Enrico Conti</h1>
+    <div class="w-100 flex justify-center pt-50px">
+        <div class="w-100 flex col align-center justify-center form-container px-sm-20px ">
+            <div class="flex gap-20px col w-sm-100">
+                <div class="col w-sm-100">
+                    <h6 class="blue fs-16px fw-400">Email</h6>
+                    <input type="text" class="text-input" [(ngModel)]="email">
+                </div>
+                <div class="col  w-sm-100">
+                    <h6 class="blue fs-16px fw-400">Password</h6>
+                    <input type="password" class="text-input" [(ngModel)]="password">
+                </div>
+            </div>
+            <div class="flex w-100 justify-end align-end pb-sm-40px">
+                <button class="blue-btn mt-30px" (click)="login()">Invia</button>
+            </div>
+        </div>
+
+    </div>
+</div>

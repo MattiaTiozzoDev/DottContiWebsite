@@ -1,0 +1,8 @@
+<div class="toast-container">
+  @for (t of toasts$ | async; track t; let i = $index) {
+    <div class="toast" [ngClass]="t.type">
+      <div class="message">{{ t.message }}</div>
+      <button class="close" (click)="close(i)">×</button>
+    </div>
+  }
+</div>

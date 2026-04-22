@@ -1,0 +1,32 @@
+.blu-img-bg{
+    background: linear-gradient(119.31deg, #D2EAEF 17.16%, #86BBF1 89.78%);
+}
+
+.gap-30px{
+    gap: 50px;
+}
+
+.footer{
+    height: 100px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.gray{
+    color: rgba(39, 71, 96, 0.52);
+}
+
+.min-h{
+    min-height: 70vh;
+}
+
+.h-600px{
+    height: 600px;
+}
+
+
+@media screen and (max-width:700px) {
+    .footer{
+        height: 60px;
+    }
+}
+

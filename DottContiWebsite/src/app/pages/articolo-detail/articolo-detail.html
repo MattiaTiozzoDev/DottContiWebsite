@@ -1,0 +1,51 @@
+
+@if(article$ | async; as article){
+    @if(auth.isLogged){
+        <div class="px-80px px-sm-10px">
+            <button class="blue-btn" (click)="deleteArticle()"> Elimina Articolo</button>   
+        </div> 
+    }
+     @for (line of splitText(article?.title); track $index) {
+       <h1 class="title blue fs-50px fs-sm-38px pt-80px px-80px px-sm-10px pt-sm-40px fs-sm-20px"> {{line}}</h1>
+    }
+    @for (line of splitText(article.article); track $index) {
+        <p class=" gray w-md-100 fw-400 w-sm-100 px-80px px-sm-10px pt-20px fs-sm-14px">
+            {{ line}}
+        </p>
+    }
+    <h1 class="title blue fs-30px fs-sm-38px pt-80px px-80px px-sm-10px pt-sm-40px fs-sm-20px">Bibliografia</h1>
+    <div class="flex col px-80px px-sm-10px mt-20px">
+         @for (reference of article.references; track $index) {
+            <div class="flex pl-20px pl-sm-1px mb-20px">
+                <div class="circle mt-6px hide-sm"></div>
+                <h4 class="fw-500 fs-16px fs-sm-12px  pl-sm-0px blue">{{reference}}</h4>
+            </div>
+        }
+    </div>
+
+    <div class="px-80px px-sm-10px">
+        <h4 class="fs-50px fs-sm-35px bold blue pt-100px pt-sm-80px" >Altri articoli</h4>
+        <p class="gray w-80 fs-sm-14px w-sm-100">Informazione e aggiornamento sulla salute urologica e andrologica.</p>
+        <div class=" px-sm-0px flex justify-between align-center pt-40px overflow-x-sm-scroll" >
+            @for(article of articlesPreview$ | async; track $index){
+                <article-card [date]="article.date" class="px-sm-0px zoom-md" [index]="$index" [id]="article.id">
+                    <p class="blue bold fs-20px">{{article.title}}</p>
+                </article-card>
+            }
+        </div>
+            <h5 class="blue pt-30px fs-16px cursor-pointer" routerLink="/articoli">Vedi tutti gli articoli -></h5>
+    </div>
+       <div class="flex footer align-center justify-between px-100px px-sm-10px bg-light-blue mt-100px mt-sm-60px">
+        <div class="flex pl-120px">
+            <p class="fs-15px pr-10px hide-sm">Segui su</p>
+            <a href="https://www.facebook.com/enrico.conti.946" target="_blank">
+                <img class="px-5px cursor-pointer" src="assets/img/facebook.svg" alt="Facebook Icon">
+            </a>
+            <a href="https://www.linkedin.com/in/enrico-conti-34b77956/" target="_blank">
+                <img class="px-5px" src="assets/img/linkedin.svg" alt="LinkedIn Icon">
+            </a>
+        </div>
+        <p class="fs-15px fs-sm-11px">© 2026 Dr. Enrico Conti – Tutti i diritti riservati</p>
+    </div>
+
+}

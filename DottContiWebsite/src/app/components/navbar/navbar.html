@@ -36,8 +36,8 @@
                     <div class="link-underline"></div>
                 </div>
             </li>
-            <li style="display: none;">
-                <a routerLink="" (click)="openNavbar()">ARTICOLI</a>
+            <li>
+                <a routerLink="/articoli" (click)="openNavbar()">ARTICOLI</a>
                 <div class="flex-center">
                     <div class="link-underline"></div>
                 </div>
@@ -48,6 +48,14 @@
                     <div class="link-underline"></div>
                 </div>
             </li>
+            @if(authservice.user$ | async){
+                <li>
+                    <a routerLink="/dashboard" (click)="openNavbar()"> <span class="bold">DASHBOARD</span></a>
+                    <div class="flex-center">
+                        <div class="link-underline"></div>
+                    </div>
+                </li>
+            }
             <li>
                 <a href="https://www.miodottore.it/enrico-conti/urologo-andrologo/castelnuovo-magra" target="_blank" class=" show-sm">
                     <button class="blue-btn">Prenota</button>

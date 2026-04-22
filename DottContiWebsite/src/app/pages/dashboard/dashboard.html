@@ -1,0 +1,66 @@
+
+
+<div class="transform-sm-0 flex justify-center py-50px bg-radial-grad">
+    <div class="w-100 flex col align-center justify-center form-container px-sm-20px ">
+        <h1 class="title w-100 text-center blue fs-30px fs-sm-20px">Inserimento articoli</h1>
+        @if(error){
+            <h5 class="error w-100 text-center fs-15px fs-sm-10px red">Errore nell'inserimento: {{error}}</h5>
+        }
+        <div class="flex gap-20px col-sm w-sm-100">
+            <div class="col w-sm-100">
+                <h6 class="blue fs-16px fw-400">Titolo</h6>
+                <input type="text" class="text-input" placeholder="Inserisci titolo" [(ngModel)]="title" name="title">
+            </div>
+            <div class="col  w-sm-100">
+                <h6 class="blue fs-16px fw-400">Data</h6>
+                <input type="date" class="text-input" [(ngModel)]="date" name="date">
+            </div>
+        </div>
+        <div class="col w-sm-100">
+            @for(reference of references; track $index){
+                <h6 class="blue fs-16px fw-400">Fonte</h6>
+                <div class="flex">
+                    <input type="text" class="text-input w-550" placeholder="Inserisci fonte" [(ngModel)]="references[$index]" name="ref{{$index}}">
+                    <div class="circle-plus cursor-pointer ml-5px mt-15px" (click)="removeReference($index)"> - </div>
+                </div>
+            }
+
+            <div class="flex pt-10px">
+                <h6 class="blue fs-16px fw-500 mr-5px">Aggiungi</h6>
+                <div class="circle-plus cursor-pointer" (click)="addReference()"> + </div>
+            </div>
+        </div>
+        <div class="col  w-sm-100">
+            <h6 class="blue fs-16px fw-400">Testo</h6>
+            <textarea class="textarea-input " placeholder="Inserisci testo" [(ngModel)]="article"></textarea>
+        </div>
+        <div class="flex w-600 justify-end align-end pb-sm-40px">
+            <button class="blue-btn mt-30px" (click)="onSubmit()">Invia</button>
+        </div>
+    </div>
+</div>
+<div class="transform-sm-0 flex justify-center py-50px bg-radial-grad">
+    <div class="w-100 flex col align-center justify-center form-container px-sm-20px ">
+        <h1 class="title w-100 text-center blue fs-30px fs-sm-20px">Inserimento video</h1>
+         <div class="col w-sm-100">
+                <h6 class="blue fs-16px fw-400">Url del video</h6>
+                <input type="text" class="text-input" placeholder="Inserisci url del video" [(ngModel)]="videoUrl" name="videoUrl">
+            </div>
+            <div class="flex w-600 justify-end align-end pb-sm-40px">
+            <button class="blue-btn mt-30px" (click)="onSubmitVideo()">Invia</button>
+        </div>
+    </div>
+</div>
+
+   <div class="flex footer align-center justify-between px-120px px-sm-10px bg-light-blue mt-100px mt-sm-60px">
+        <div class="flex pl-120px">
+            <p class="fs-15px pr-10px hide-sm">Segui su</p>
+            <a href="https://www.facebook.com/enrico.conti.946" target="_blank">
+                <img class="px-5px cursor-pointer" src="assets/img/facebook.svg" alt="Facebook Icon">
+            </a>
+            <a href="https://www.linkedin.com/in/enrico-conti-34b77956/" target="_blank">
+                <img class="px-5px" src="assets/img/linkedin.svg" alt="LinkedIn Icon">
+            </a>
+        </div>
+        <p class="fs-15px fs-sm-11px">© 2026 Dr. Enrico Conti – Tutti i diritti riservati</p>
+    </div>
