@@ -20,26 +20,26 @@
                 <div class="w-100 flex col align-center justify-center form-container px-sm-20px ">
                     <form [formGroup]="form" (ngSubmit)="sendMail()">
                     <div class="flex gap-20px col-sm w-sm-100">
-                        <div class="col w-sm-100">
+                        <div class="flex col w-sm-100">
                             <h6 class="blue fs-16px fw-400">Nome</h6>
                             <input type="text" class="text-input" formControlName="name" placeholder="Nome">
                             @if(form.get('name')?.invalid && form.get('name')?.touched){
-                                    Nome non valido
+                                   <span class="red fs-12px">Nome non valido</span>
                             }
                         </div>
-                        <div class="col  w-sm-100">
+                        <div class="flex col w-sm-100">
                             <h6 class="blue fs-16px fw-400">Email</h6>
                             <input type="text" class="text-input" formControlName="email" placeholder="Email">
                             @if(form.get('email')?.invalid && form.get('email')?.touched){
-                                    Email non valida
+                                   <span class="red fs-12px">Email non valida</span>
                             }
                         </div>
                     </div>
-                    <div class="col  w-sm-100">
+                    <div class="flex col  w-sm-100">
                         <h6 class="blue fs-16px fw-400">Oggetto</h6>
                         <input type="text" class="text-input w-600" formControlName="subject" placeholder="Oggetto">
                     </div>
-                    <div class="col  w-sm-100">
+                    <div class="flex col  w-sm-100">
                         <h6 class="blue fs-16px fw-400">Messaggio</h6>
                         <textarea class="textarea-input " formControlName="message" placeholder="Messaggio"></textarea>
                     </div>
@@ -67,14 +67,14 @@
 
 </div>
     <div class="flex footer align-center justify-between px-120px px-sm-10px bg-light-blue mt-100px mt-sm-60px">
-        <div class="flex pl-120px">
-            <p class="fs-15px pr-10px hide-sm">Segui su</p>
-            <a href="https://www.facebook.com/enrico.conti.946" target="_blank">
+       <div class="flex pl-120px">
+            <p class="fs-15px pr-10px">P. IVA 04089430047</p>
+            <!-- <a href="https://www.facebook.com/enrico.conti.946" target="_blank">
                 <img class="px-5px cursor-pointer" src="assets/img/facebook.svg" alt="Facebook Icon">
             </a>
             <a href="https://www.linkedin.com/in/enrico-conti-34b77956/" target="_blank">
                 <img class="px-5px" src="assets/img/linkedin.svg" alt="LinkedIn Icon">
-            </a>
+            </a> -->
         </div>
         <p class="fs-15px fs-sm-11px">© 2026 Dr. Enrico Conti – Tutti i diritti riservati</p>
     </div>

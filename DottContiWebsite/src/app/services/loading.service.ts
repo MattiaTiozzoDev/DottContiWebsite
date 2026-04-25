@@ -25,4 +25,19 @@ export class LoadingService {
     this.counter = 0;
     this.loadingSubject.next(false);
   }
+
+  preloadImages(images: string[]): Promise<void> {
+    this.show();
+    const promises = images.map((src) => {
+      return new Promise<void>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve();
+        img.onerror = () => reject();
+        img.src = src;
+      });
+    });
+    return Promise.all(promises)
+      .then(() => this.hide())
+      .catch(() => this.hide());
+  }
 }

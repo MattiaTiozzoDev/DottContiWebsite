@@ -1,7 +1,9 @@
-@if(loading$ | async){
-    <div class="overlay">
-        <div class="spinner"></div>
-     </div>
-
+@if (loading$ | async) {
+  <div class="loading-overlay">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <div class="text">Caricamento...</div>
+    </div>
+  </div>
 }
 

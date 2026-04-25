@@ -8,6 +8,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { LoadingService } from '../../services/loading.service';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'contatti',
@@ -26,6 +28,8 @@ export class Contatti {
     private router: Router,
     private http: HttpClient,
     private fb: FormBuilder,
+    public loadingService: LoadingService,
+    public toastService: ToastService,
   ) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -42,22 +46,31 @@ export class Contatti {
   }
 
   sendMail() {
-    if (this.form.invalid || this.loading) return;
+    if (this.form.invalid) return;
 
-    this.loading = true;
+    this.loadingService.show();
     this.success = false;
     this.error = false;
 
-    this.http.post('URL_DELLA_FUNCTION', this.form.value).subscribe({
-      next: () => {
-        this.loading = false;
-        this.success = true;
-        this.form.reset();
-      },
-      error: () => {
-        this.loading = false;
-        this.error = true;
-      },
-    });
+    this.http
+      .post(
+        'https://us-central1-dottenricocontiwebsite.cloudfunctions.net/sendContactMail',
+        this.form.value,
+      )
+      .subscribe({
+        next: () => {
+          this.loadingService.hide();
+          this.toastService.success('Messaggio inviato con successo!');
+          this.success = true;
+          this.form.reset();
+        },
+        error: () => {
+          this.toastService.error(
+            "Errore nell'invio del messaggio. Riprova più tardi.",
+          );
+          this.loadingService.hide();
+          this.error = true;
+        },
+      });
   }
 }

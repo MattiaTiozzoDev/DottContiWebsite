@@ -1,37 +1,37 @@
-const functions = require("firebase-functions");
+const { onRequest } = require("firebase-functions/v2/https");
 const nodemailer = require("nodemailer");
+const validator = require("validator");
+const cors = require("cors")({ origin: true }); // origin: true accetta tutti i domini
 
-// Configura il trasporto (Gmail)
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "TUA_EMAIL@gmail.com",
-    pass: "PASSWORD_APP",
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS,
   },
 });
 
-exports.sendContactMail = functions.https.onRequest(async (req, res) => {
-  // Permetti richieste da browser (CORS base)
-  res.set("Access-Control-Allow-Origin", "*");
-  res.set("Access-Control-Allow-Methods", "POST");
+exports.sendContactMail = onRequest({ cors: true }, async (req, res) => {
+  return cors(req, res, async () => {
+    if (req.method !== "POST")
+      return res.status(405).send("METHOD NOT ALLOWED");
 
-  if (req.method !== "POST") {
-    return res.status(405).send("Metodo non consentito");
-  }
+    try {
+      console.log("REQ BODY:", req.body);
 
-  const { name, email, subject, message } = req.body;
+      const { name, email, subject, message } = req.body || {};
 
-  if (!name || !email || !subject || !message) {
-    return res.status(400).send("Dati mancanti");
-  }
+      if (!email || !validator.isEmail(email)) {
+        return res.status(400).send("INVALID EMAIL");
+      }
 
-  try {
-    await transporter.sendMail({
-      from: "dott.enricocontiurologo@gmail.com",
-      to: "dott.enricocontiurologo@gmail.com", // mail fissa
-      subject: `Messaggio da www.enricoconti.it : ${subject}`,
-      text: `Nome: ${name}\nEmail: ${email}\nMessaggio: ${message}`,
-      html: `
+      const result = await transporter.sendMail({
+        from: process.env.GMAIL_USER,
+        to: process.env.GMAIL_USER,
+        replyTo: email,
+        subject: subject || "Nessun oggetto",
+        text: message || "",
+        html: `
              <div style="font-family: Arial, sans-serif; background:#274760; ;">
                 <div style=" margin:0 ; background: radial-gradient(59.95% 42.35% at 70.78% 50%, rgba(134, 187, 241, 0.38) 0%, rgba(134, 187, 241, 0) 100%); border-radius:8px; ">
                     <div style=" padding:40px;">
@@ -59,11 +59,13 @@ exports.sendContactMail = functions.https.onRequest(async (req, res) => {
                 </div>
             </div>
             `,
-    });
+      });
 
-    return res.status(200).send("OK");
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send("Errore invio mail");
-  }
+      console.log("EMAIL SENT:", result);
+      return res.status(200).send("OK");
+    } catch (err) {
+      console.error("FATAL ERROR:", err);
+      return res.status(500).send(err.message || "ERROR");
+    }
+  });
 });

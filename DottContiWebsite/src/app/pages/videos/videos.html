@@ -1,13 +1,11 @@
 <div class="flex col min-h">
-    <h1 class="title blue fs-50px fs-sm-38px pt-80px px-80px px-sm-10px pt-sm-40px fs-sm-20px">Approfondimenti e articoli</h1>
+    <h1 class="title blue fs-50px fs-sm-38px pt-80px px-80px px-sm-10px pt-sm-40px fs-sm-20px">Video e podcast</h1>
     <h4 class="text gray w-60 w-md-100 w-sm-100 px-80px px-sm-10px pt-20px fs-sm-14px">
-        Informazione e aggiornamento sulla salute urologica e andrologica
+        Informazione e aggiornamento sulla ultime novità in ambito urologico e andrologico.
     </h4>
      <div class="  flex align-center pt-40px px-80px px-sm-40px wrap gap-30px">
-            @for(article of store.articles$ | async; track $index){
-                <article-card [date]="article.date" class="px-sm-0px zoom-md"  [index]="$index" [id]="article.id">
-                    <p class="blue bold fs-20px">{{article.title}}</p>
-                </article-card>
+            @for(video of videosPreview$ | async; track $index){
+               <iframe width="560" height="315" [src]="video.url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             }
         </div>
 </div>
@@ -24,4 +22,3 @@
         </div>
         <p class="fs-15px fs-sm-11px">© 2026 Dr. Enrico Conti – Tutti i diritti riservati</p>
     </div>
-
