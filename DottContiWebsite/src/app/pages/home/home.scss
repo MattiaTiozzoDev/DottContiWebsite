@@ -62,8 +62,19 @@
 
 }
 
+.container{
+    margin: 80px 80px ;
+}
+
 .translate-y-30px{
     transform: translateY(-30px);
+}
+
+.box{
+    height: 410px;
+    overflow-y: visible;
+    background-image: url('../../../assets/img/banner_prenotazioni.svg');
+    background-size: cover;
 }
 
 .w-600px{
@@ -109,6 +120,10 @@
         font-size: 72px;
         line-height: 75px;
     }
+
+      .container{
+    margin: 40px 20px  0 20px;
+}
 
     .h-sm-0{
         height: 0;

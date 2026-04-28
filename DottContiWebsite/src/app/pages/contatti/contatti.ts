@@ -56,6 +56,7 @@ export class Contatti {
       .post(
         'https://us-central1-dottenricocontiwebsite.cloudfunctions.net/sendContactMail',
         this.form.value,
+        { responseType: 'text' },
       )
       .subscribe({
         next: () => {

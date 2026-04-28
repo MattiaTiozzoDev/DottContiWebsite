@@ -4,17 +4,20 @@ const validator = require("validator");
 const cors = require("cors")({ origin: true }); // origin: true accetta tutti i domini
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.hostinger.com",
+  port: 465,
+  secure: true,
   auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
   },
 });
 
 exports.sendContactMail = onRequest({ cors: true }, async (req, res) => {
   return cors(req, res, async () => {
+    console.log(process.env.MAIL_PASS);
     if (req.method !== "POST")
-      return res.status(405).send("METHOD NOT ALLOWED");
+      return res.status(400).json({ error: "METHOD NOT ALLOWED" });
 
     try {
       console.log("REQ BODY:", req.body);
@@ -22,12 +25,12 @@ exports.sendContactMail = onRequest({ cors: true }, async (req, res) => {
       const { name, email, subject, message } = req.body || {};
 
       if (!email || !validator.isEmail(email)) {
-        return res.status(400).send("INVALID EMAIL");
+        return res.status(400).json({ error: "INVALID EMAIL" });
       }
 
       const result = await transporter.sendMail({
-        from: process.env.GMAIL_USER,
-        to: process.env.GMAIL_USER,
+        from: process.env.MAIL_USER,
+        to: process.env.MAIL_USER,
         replyTo: email,
         subject: subject || "Nessun oggetto",
         text: message || "",
@@ -43,7 +46,7 @@ exports.sendContactMail = onRequest({ cors: true }, async (req, res) => {
                             ${email}
                         </p>
 
-                        <div style="margin-top:20px;color:white;">
+                        <div style="margin-top:20px;color:#274760;">
                             <p><strong>Messaggio:</strong></p>
                             <div style="background:#f9f9f9; padding:15px; border-radius:6px;">
                                 ${message}
@@ -62,10 +65,10 @@ exports.sendContactMail = onRequest({ cors: true }, async (req, res) => {
       });
 
       console.log("EMAIL SENT:", result);
-      return res.status(200).send("OK");
+      return res.status(200).json({ ok: true });
     } catch (err) {
       console.error("FATAL ERROR:", err);
-      return res.status(500).send(err.message || "ERROR");
+      return res.status(500).json({ error: err.message || "ERROR" });
     }
   });
 });
