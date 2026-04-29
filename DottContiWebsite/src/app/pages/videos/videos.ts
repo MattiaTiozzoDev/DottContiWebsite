@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { ArticlesStore } from '../../services/articles.store';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { map, Observable } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-videos',
@@ -18,6 +19,7 @@ export class Videos {
     private router: Router,
     public store: ArticlesStore,
     private sanitizer: DomSanitizer,
+    public auth: AuthService,
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

@@ -3,22 +3,21 @@
     <h4 class="text gray w-60 w-md-100 w-sm-100 px-80px px-sm-10px pt-20px fs-sm-14px">
         Informazione e aggiornamento sulla ultime novità in ambito urologico e andrologico.
     </h4>
-     <div class="  flex align-center pt-40px px-80px px-sm-40px wrap gap-30px">
+    <div class="  flex align-center pt-40px px-80px px-sm-40px wrap gap-30px">
+        <div class="flex col">
             @for(video of videosPreview$ | async; track $index){
-               <iframe width="560" height="315" [src]="video.url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                @if(auth.isLogged){
+                    <button class="blue-btn" (click)="this.store.deleteVideo(video.id)"><img src="assets/img/trash-solid.svg" alt="Trash Icon" width="20" height="20"></button>   
+                }
+                <iframe width="560" height="315" [src]="video.url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             }
         </div>
+    </div>
 </div>
 
-   <div class="flex footer align-center justify-between px-100px px-sm-10px bg-light-blue mt-100px mt-sm-60px">
-        <div class="flex pl-120px">
-            <p class="fs-15px pr-10px">P. IVA 04089430047</p>
-            <!-- <a href="https://www.facebook.com/enrico.conti.946" target="_blank">
-                <img class="px-5px cursor-pointer" src="assets/img/facebook.svg" alt="Facebook Icon">
-            </a>
-            <a href="https://www.linkedin.com/in/enrico-conti-34b77956/" target="_blank">
-                <img class="px-5px" src="assets/img/linkedin.svg" alt="LinkedIn Icon">
-            </a> -->
-        </div>
-        <p class="fs-15px fs-sm-11px">© 2026 Dr. Enrico Conti – Tutti i diritti riservati</p>
+<div class="flex footer align-center justify-between px-100px px-sm-10px bg-light-blue mt-100px mt-sm-60px">
+    <div class="flex pl-120px">
+        <p class="fs-15px pr-10px">P. IVA 04089430047</p>
     </div>
+    <p class="fs-15px fs-sm-11px">© 2026 Dr. Enrico Conti – Tutti i diritti riservati</p>
+</div>

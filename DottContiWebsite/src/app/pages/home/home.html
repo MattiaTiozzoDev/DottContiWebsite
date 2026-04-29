@@ -93,7 +93,33 @@
             <p class="gray fs-16px fs-sm-12px">Terapia con onde d’urto <br> Trattamento disfunzione erettile <br>Chirurgia andrologica ambulatoriale <br> Trattamenti per patologie prostatiche </p>
         </big-card>
     </div>
+    <div class="container flex col justify-end zoom-md pt-80px pt-sm-80px  reveal" revealDirective>
+        <div class="box flex justify-between ">
+            <div class="flex col pl-100px pl-sm-10px">
+                <h4 class="fs-55px fs-sm-30px bold white pt-30px">Protocollo SOLV-ED</h4>
+                <h4 class="fs-40px fs-sm-20px bold blue pt-10px pt-sm-5px">Trattamento moderno della Disfunzione Erettile</h4>
+                <p class="fs-20px fs-sm-16px blue pt-20px w-80 w-sm-100">
+                    Supera il problema con le onde d'urto focalizzate. <br> Un percorso d’eccellenza personalizzato dal Dott. Conti per risultati concreti e senza farmaci.  
+                    <!-- <br><br>
+                    <a href="https://www.iouomoinsalute.it" target="_blank" class="blue link bold">Scopri il profilo social di IOUOMOINSALUTE</a> -->
+                </p>
+                
+                <a href="https://www.solvedimpotenza.it" target="_blank"><button class="blue-btn mt-30px" >Scopri di più</button></a>
+            </div>
+        </div>
+    </div>
     <h5 class="blue px-120px pt-30px fs-16px hide-sm cursor-pointer reveal" revealDirective routerLink="/prestazioni">Vedi tutte le prestazioni -></h5>
+    <div class="px-120px px-sm-10px">
+        <h4 class="fs-50px fs-sm-35px bold blue pt-100px reveal" revealDirective>Approfondimenti <br> e articoli</h4>
+        <p class="gray w-80 fs-sm-14px w-sm-100">Informazione e aggiornamento sulla salute urologica e andrologica.</p>
+        <div class=" px-sm-0px flex justify-between align-center pt-40px overflow-x-sm-scroll  reveal no-reveal-sm" revealDirective>
+            @for(article of articlesPreview$ | async; track $index){
+                <article-card [date]="article.date" class="px-sm-0px zoom-md reveal-left" revealDirective [index]="$index" [id]="article.id">
+                    <p class="blue bold fs-20px">{{article.title}}</p>
+                </article-card>
+            }
+        </div>
+    </div>
     <div class="container flex col justify-end zoom-md pt-80px pt-sm-80px  reveal" revealDirective>
         <div class="box flex justify-between ">
             <div class="flex col pl-100px pl-sm-10px">
@@ -107,17 +133,6 @@
                 <a href="https://www.iouomoinsalute.it" target="_blank"><button class="blue-btn mt-30px" >Scopri di più</button></a>
             </div>
             <img class="hide-sm" src="assets/img/io_uomo_in_salute_book.png" alt="Dott. Enrico Conti" height="570px">
-        </div>
-    </div>
-    <div class="px-120px px-sm-10px">
-        <h4 class="fs-50px fs-sm-35px bold blue pt-100px reveal" revealDirective>Approfondimenti <br> e articoli</h4>
-        <p class="gray w-80 fs-sm-14px w-sm-100">Informazione e aggiornamento sulla salute urologica e andrologica.</p>
-        <div class=" px-sm-0px flex justify-between align-center pt-40px overflow-x-sm-scroll  reveal no-reveal-sm" revealDirective>
-            @for(article of articlesPreview$ | async; track $index){
-                <article-card [date]="article.date" class="px-sm-0px zoom-md reveal-left" revealDirective [index]="$index" [id]="article.id">
-                    <p class="blue bold fs-20px">{{article.title}}</p>
-                </article-card>
-            }
         </div>
     </div>
     <h5 class="blue px-120px pt-30px fs-16px cursor-pointer reveal" revealDirective routerLink="/articoli">Vedi tutti gli articoli -></h5>
