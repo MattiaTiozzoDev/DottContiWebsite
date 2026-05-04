@@ -4,14 +4,15 @@
         Informazione e aggiornamento sulla ultime novità in ambito urologico e andrologico.
     </h4>
     <div class="  flex align-center pt-40px px-80px px-sm-40px wrap gap-30px">
-        <div class="flex col">
-            @for(video of videosPreview$ | async; track $index){
+
+        @for(video of videosPreview$ | async; track $index){
+            <div class="flex col w-30 w-sm-100">
                 @if(auth.isLogged){
                     <button class="blue-btn" (click)="this.store.deleteVideo(video.id)"><img src="assets/img/trash-solid.svg" alt="Trash Icon" width="20" height="20"></button>   
                 }
-                <iframe width="560" height="315" [src]="video.url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            }
-        </div>
+                <iframe width="100%" height="280" [src]="video.url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        }
     </div>
 </div>
 
