@@ -16,6 +16,10 @@
                 <input type="date" class="text-input" [(ngModel)]="date" name="date">
             </div>
         </div>
+        <div class="col w-sm-100 w-100-form">
+            <h6 class="blue fs-16px fw-400">Sottotitolo (opzionale)</h6>
+            <input type="text" class="text-input w-subtitle" placeholder="Inserisci sottotitolo" [(ngModel)]="subtitle" name="subtitle">
+        </div>
         <div class="col w-sm-100">
             @for(reference of references; track $index){
                 <h6 class="blue fs-16px fw-400">Fonte</h6>
@@ -32,7 +36,16 @@
         </div>
         <div class="col  w-sm-100">
             <h6 class="blue fs-16px fw-400">Testo</h6>
-            <textarea class="textarea-input " placeholder="Inserisci testo" [(ngModel)]="article"></textarea>
+            <div class="editor-toolbar">
+                <button type="button" class="editor-btn" title="Grassetto (seleziona il testo, poi premi B)" (click)="insertBold()"><b>B</b></button>
+                <button type="button" class="editor-btn" title="Inserisci nuovo paragrafo ($$)" (click)="insertParagraph()">¶ Paragrafo</button>
+                <button type="button" class="editor-btn" [class.active]="showPreview" title="Mostra/nascondi anteprima" (click)="togglePreview()">{{ showPreview ? 'Nascondi anteprima' : 'Anteprima' }}</button>
+                <span class="editor-hint">Suggerimento: <code>**testo**</code> per il grassetto, <code>$$</code> per nuovo paragrafo.</span>
+            </div>
+            <textarea #articleArea class="textarea-input " placeholder="Inserisci testo" [(ngModel)]="article"></textarea>
+            @if(showPreview){
+                <div class="editor-preview" [innerHTML]="articlePreviewHtml"></div>
+            }
         </div>
         <div class="flex w-600 justify-end align-end pb-sm-40px">
             <button class="blue-btn mt-30px" (click)="onSubmit()">Invia</button>

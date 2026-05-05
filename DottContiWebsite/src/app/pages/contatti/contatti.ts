@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PinCard } from '../../components/pin-card/pin-card';
 import { NavigationEnd, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import { LoadingService } from '../../services/loading.service';
 import { ToastService } from '../../services/toast.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'contatti',
@@ -17,7 +18,7 @@ import { ToastService } from '../../services/toast.service';
   templateUrl: './contatti.html',
   styleUrl: './contatti.scss',
 })
-export class Contatti {
+export class Contatti implements OnInit {
   form: FormGroup;
 
   loading = false;
@@ -30,6 +31,7 @@ export class Contatti {
     private fb: FormBuilder,
     public loadingService: LoadingService,
     public toastService: ToastService,
+    private seo: SeoService,
   ) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -42,6 +44,18 @@ export class Contatti {
       if (event instanceof NavigationEnd) {
         window.scrollTo(0, 0);
       }
+    });
+  }
+
+  ngOnInit(): void {
+    this.seo.setPage({
+      title:
+        'Contatti Dr. Enrico Conti — Urologo e Andrologo ad Alba, La Spezia, Castelnuovo Magra',
+      description:
+        'Prenota una visita urologica o andrologica con il Dr. Enrico Conti. Sedi: Poliambulatorio San Paolo Alba (CN), Centro Medico Due Soli La Spezia, Centro Medico Monsignori Castelnuovo Magra (SP).',
+      path: '/contatti',
+      keywords:
+        'prenota visita urologica, prenota visita andrologica, contatti Dr. Enrico Conti, studio medico Alba, studio medico La Spezia',
     });
   }
 

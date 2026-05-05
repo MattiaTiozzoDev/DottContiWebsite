@@ -13,6 +13,7 @@ import { art } from './articles';
 export interface Article {
   id?: string;
   title?: string;
+  subtitle?: string;
   date?: string;
   references?: string[];
   article?: string;
@@ -41,10 +42,22 @@ export class ArticlesStore {
         ...doc.data(),
       })) as Article[];
       console.log(articles);
-      this.articlesSubject.next(articles);
+      this.articlesSubject.next(this.sortByDateDesc(articles));
     } catch (err) {
       console.error('Errore caricamento articoli:', err);
     }
+  }
+
+  /** Ordina gli articoli per data decrescente (più recenti prima). Articoli senza data finiscono in fondo. */
+  private sortByDateDesc(articles: Article[]): Article[] {
+    return [...articles].sort((a, b) => {
+      const da = a.date ?? '';
+      const db = b.date ?? '';
+      if (!da && !db) return 0;
+      if (!da) return 1;
+      if (!db) return -1;
+      return db.localeCompare(da);
+    });
   }
 
   async loadVideos() {
@@ -70,7 +83,9 @@ export class ArticlesStore {
 
     // aggiornamento locale immediato (opzionale)
     const current = this.articlesSubject.value;
-    this.articlesSubject.next([...current, { ...article, id: docRef.id }]);
+    this.articlesSubject.next(
+      this.sortByDateDesc([...current, { ...article, id: docRef.id }]),
+    );
   }
 
   // aggiunge video (Firebase + store)

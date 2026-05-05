@@ -3,6 +3,16 @@
     height: 10px;
     border-radius:5px;
     background-color: #274760;
+    margin-right: 5px;
+}
+
+strong{
+    color: #274760;
+}
+
+.px-15{
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 .footer{
@@ -14,6 +24,11 @@
         overflow-x: auto;
         max-width: 100%;
         min-width: 0;
+    }
+
+    .px-15{
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .footer{

@@ -1,10 +1,11 @@
 import { AsyncPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ArticlesStore } from '../../services/articles.store';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { map, Observable } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-videos',
@@ -12,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './videos.html',
   styleUrl: './videos.scss',
 })
-export class Videos {
+export class Videos implements OnInit {
   public videosPreview$: Observable<any> | undefined;
 
   constructor(
@@ -20,6 +21,7 @@ export class Videos {
     public store: ArticlesStore,
     private sanitizer: DomSanitizer,
     public auth: AuthService,
+    private seo: SeoService,
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -37,6 +39,17 @@ export class Videos {
           }));
         }),
       );
+    });
+  }
+
+  ngOnInit(): void {
+    this.seo.setPage({
+      title:
+        'Podcast e video di urologia e andrologia — Dr. Enrico Conti',
+      description:
+        'Video, podcast e interviste del Dr. Enrico Conti, urologo e andrologo ad Alba (CN), La Spezia e Castelnuovo Magra (SP), su salute maschile, prostata e disfunzione erettile.',
+      path: '/videos',
+      keywords: 'video urologia, podcast andrologia, salute maschile video',
     });
   }
 

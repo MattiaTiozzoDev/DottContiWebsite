@@ -12,6 +12,7 @@ import { ArticlesStore } from '../../services/articles.store';
 import { AsyncPipe } from '@angular/common';
 import { map, Observable, tap } from 'rxjs';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'conti-home',
@@ -38,6 +39,7 @@ export class Home implements OnInit {
     private router: Router,
     public store: ArticlesStore,
     private sanitizer: DomSanitizer,
+    private seo: SeoService,
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -49,6 +51,13 @@ export class Home implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.seo.setPage({
+      title:
+        'Dr. Enrico Conti — Urologo e Andrologo ad Alba, La Spezia e Castelnuovo Magra',
+      description:
+        'Urologo e andrologo con oltre 30 anni di esperienza. Visite specialistiche, ecografie e trattamenti per disfunzione erettile e patologie della prostata ad Alba (CN), La Spezia e Castelnuovo Magra (SP).',
+      path: '/',
+    });
     this.articlesPreview$ = this.store.articles$.pipe(
       map((list) => list.slice(0, 4)),
     );
